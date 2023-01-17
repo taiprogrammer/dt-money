@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Header } from "../../components/Header/Index";
 import { Summary } from "../../components/Summary/Index";
+import { TransactionContext } from "../../contexts/TransactionsContext";
 import { Searchbar } from "./components/Searchbar/Index";
 import {
   PriceHighlight,
@@ -8,26 +9,8 @@ import {
   TransactionsTable,
 } from "./styles";
 
-interface Transaction {
-  id: number;
-  description: string;
-  type: "income" | "outcome";
-  price: number;
-  category: string;
-  createdAt: string;
-}
-
 export function Transaction() {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-
-  async function load() {
-    const response = await fetch("http://localhost:3000/transactions");
-    const data = await response.json();
-    setTransactions(data);
-  }
-  useEffect(() => {
-    load();
-  }, []);
+  const { transactions } = useContext(TransactionContext);
   return (
     <div>
       <Header />
