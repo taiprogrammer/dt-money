@@ -15,6 +15,22 @@
             "category": "Alimentação",
             "price": 50,
             "createdAt": "2022-07-29T19:30:44.505Z"
+        },
+        {
+            "id": 3,
+            "description": "Ilustração",
+            "type": "income",
+            "category": "Venda",
+            "price": 3000,
+            "createdAt": "2022-07-20T18:00:44.505Z"
+        },
+        {
+            "id": 4,
+            "description": "Esmalte",
+            "type": "outcome",
+            "category": "Beleza",
+            "price": 20,
+            "createdAt":"2022-07-20T18:45:44.505Z"
         }
     ]
 }
