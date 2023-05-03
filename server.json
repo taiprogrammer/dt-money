@@ -1,36 +1,60 @@
 {
-    "transactions": [
-        {
-            "id": 1,
-            "description": "Desenvolvimento de site",
-            "type": "income",
-            "category": "Venda",
-            "price": 14000,
-            "createdAt": "2022-07-29T19:36:44.505Z"
-        },
-        {
-            "id": 2,
-            "description": "Haburguer",
-            "type": "outcome",
-            "category": "Alimentação",
-            "price": 50,
-            "createdAt": "2022-07-29T19:30:44.505Z"
-        },
-        {
-            "id": 3,
-            "description": "Ilustração",
-            "type": "income",
-            "category": "Venda",
-            "price": 3000,
-            "createdAt": "2022-07-20T18:00:44.505Z"
-        },
-        {
-            "id": 4,
-            "description": "Esmalte",
-            "type": "outcome",
-            "category": "Beleza",
-            "price": 20,
-            "createdAt":"2022-07-20T18:45:44.505Z"
-        }
-    ]
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2022-07-29T19:36:44.505Z"
+    },
+    {
+      "id": 2,
+      "description": "Haburguer",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 50,
+      "createdAt": "2022-07-29T19:30:44.505Z"
+    },
+    {
+      "id": 3,
+      "description": "Ilustração",
+      "type": "income",
+      "category": "Venda",
+      "price": 3000,
+      "createdAt": "2022-07-20T18:00:44.505Z"
+    },
+    {
+      "id": 4,
+      "description": "Esmalte",
+      "type": "outcome",
+      "category": "Beleza",
+      "price": 20,
+      "createdAt": "2022-07-20T18:45:44.505Z"
+    },
+    {
+      "description": "Jogo roupa de cama",
+      "price": 200,
+      "category": "Casa",
+      "type": "outcome",
+      "createdAt": "2023-05-02T18:44:52.729Z",
+      "id": 5
+    },
+    {
+      "description": "Colmeia organizadora",
+      "price": 20,
+      "category": "Casa",
+      "type": "outcome",
+      "createdAt": "2023-05-02T23:02:24.711Z",
+      "id": 6
+    },
+    {
+      "description": "Aromatizadores",
+      "price": 70,
+      "category": "Casa",
+      "type": "outcome",
+      "createdAt": "2023-05-02T23:03:56.694Z",
+      "id": 7
+    }
+  ]
 }
