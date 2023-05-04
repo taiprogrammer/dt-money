@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState, useCallback } from "react";
 import { createContext } from "use-context-selector";
 import { api } from "../lib/axios";
 
@@ -33,7 +33,12 @@ export const TransactionContext = createContext({} as TransactionContextType);
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  async function fetchTransactions(query?: string) {
+  /**
+   * O useCallback serve para evitar que uma função seja recriada em memória caso não seja chamada
+   * O useMemo serve para evitar que uma variável seja recriada em memória caso não seja utilizada
+   */
+
+  const fetchTransactions = useCallback(async (query?: string) => {
     const response = api.get("transactions", {
       params: {
         _sort: "createdAt",
@@ -43,24 +48,27 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     });
 
     setTransactions((await response).data);
-  }
+  }, []);
 
-  async function createTransaction(data: createTransactionInput) {
-    const { description, price, category, type } = data;
-    const response = await api.post("/transactions", {
-      description,
-      price,
-      category,
-      type,
-      createdAt: new Date(),
-    });
+  const createTransaction = useCallback(
+    async (data: createTransactionInput) => {
+      const { description, price, category, type } = data;
+      const response = await api.post("/transactions", {
+        description,
+        price,
+        category,
+        type,
+        createdAt: new Date(),
+      });
 
-    setTransactions((state) => [response.data, ...state]);
-  }
+      setTransactions((state) => [response.data, ...state]);
+    },
+    []
+  );
 
   useEffect(() => {
     fetchTransactions();
-  }, []);
+  }, [fetchTransactions]);
   return (
     <TransactionContext.Provider
       value={{ transactions, fetchTransactions, createTransaction }}
